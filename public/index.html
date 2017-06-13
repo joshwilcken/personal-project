@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+</head>
+<body ng-controller="mainCtrl">
+    <nav>
+
+    </nav>
+    <input ng-model="ticker" placeholder="Enter Ticker Symbol">
+    <button ng-click="getQuote(ticker)"></button>
+    <h1>{{ticker.Name}}</h1>
+    <h2>${{ticker.Bid}}</h2>
+    <h2>Upcoming Dividend: {{ticker.DividendPayDate}} Amount: ${{ticker.DividendShare}}</h2>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+    <script src="./app.js"></script>
+    <script src="./js/mainCtrl.js"></script>
+    <script src="./js/mainSvc.js"></script>
+    <script></script>
+</body>
+</html>
