@@ -5,24 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="./dist/all.css">
 </head>
-<body ng-controller="mainCtrl">
-    <nav>
-
+<body>
+    
+    <nav class="navbar">
+        <a ui-sref='quote'>Home</a>
+        <a ui-sref='groupCreator' class="creator">Create a Group</a>
+        <a ui-sref='quote'>Get a Quote</a>
+        <a ui-sref='login'>Login</a>
     </nav>
-    <input ng-model="ticker" placeholder="Enter Ticker Symbol">
-    <button ng-click="getQuote(ticker)"></button>
-    <h1>{{ticker.Name}}</h1>
-    <h2>${{ticker.Bid}}</h2>
-    <h2>Upcoming Dividend: {{ticker.DividendPayDate}} Amount: ${{ticker.DividendShare}}</h2>
+    
+    <ui-view></ui-view>
     
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
-    <script src="./app.js"></script>
-    <script src="./js/mainCtrl.js"></script>
-    <script src="./js/mainSvc.js"></script>
-    <script></script>
+    <script src="./dist/all.js"></script>
+
 </body>
 </html>

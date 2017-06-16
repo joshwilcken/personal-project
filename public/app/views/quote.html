@@ -1,0 +1,6 @@
+<input ng-model="ticker" placeholder="Enter Ticker Symbol">
+    <button ng-click="getQuote(ticker)"></button>
+    <h1>{{tickerData.Name}}</h1>
+    <h2>{{tickerData.symbol}}</h2>
+    <h2>${{tickerData.LastTradePriceOnly}}</h2>
+    <h2>Upcoming Dividend: {{tickerData.DividendPayDate}} Amount: ${{tickerData.DividendShare}}</h2>
