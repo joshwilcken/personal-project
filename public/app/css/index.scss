@@ -21,5 +21,24 @@
     a:hover {
         font-size: 25px;
     }
+}
+.footer {
+    background-color: $main-green;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    div {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        i {
+            height: 30px;
+            width: 30px;
+        }
+    }
 
 }

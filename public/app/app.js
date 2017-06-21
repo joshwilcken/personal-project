@@ -1,4 +1,4 @@
-angular.module('app', ['ui.router'])
+angular.module('app', ['ui.router', 'chart.js'])
        .config(function($stateProvider, $urlRouterProvider){
 
         $urlRouterProvider.when('', '/')
@@ -14,9 +14,9 @@ angular.module('app', ['ui.router'])
             url: 'group',
             templateUrl: './app/views/groupCreator.html'
         })
-        .state('login', {
-            url: '/login',
-            templateUrl: './app/views/login.html'
+        .state('home', {
+            url: '/home',
+            templateUrl: './app/views/home.html'
         })
 
 

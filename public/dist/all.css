@@ -68,3 +68,30 @@ table {
   .navbar a:hover {
     font-size: 25px; }
 
+.footer {
+  background-color: #408800;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 20vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center; }
+  .footer div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center; }
+    .footer div i {
+      height: 30px;
+      width: 30px; }
+

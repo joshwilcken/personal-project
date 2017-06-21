@@ -1,27 +1,45 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="./dist/all.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+
 </head>
+
 <body>
-    
+
     <nav class="navbar">
-        <a ui-sref='quote'>Home</a>
+        <a ui-sref='home'>Home</a>
         <a ui-sref='groupCreator' class="creator">Create a Group</a>
         <a ui-sref='quote'>Get a Quote</a>
-        <a ui-sref='login'>Login</a>
+        <a href="./login">Login</a>
     </nav>
-    
-    <ui-view></ui-view>
-    
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+    <ui-view></ui-view>
+
+    <nav class="footer">
+        <div>Connect with us on:
+            <a href="https://twitter.com/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        </div>
+    </nav>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script> 
     <script src="./dist/all.js"></script>
+    <script src="../node_modules/chart.js/dist/Chart.js"></script>
+    <script src="../node_modules/angular-chart.js/dist/angular-chart.js"></script>
+    
+    
+ 
+
 
 </body>
+
 </html>
