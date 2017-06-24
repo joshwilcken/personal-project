@@ -7,8 +7,5 @@ angular.module('app').service('quoteSvc', function($http){
         return $http.get(`http://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${ticker}&apikey=FYYJEATQ6K0NLL40`)
     }
 
-    this.chartData = function(ticker) {
-        return $http.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${ticker}&apikey=FYYJEATQ6K0NLL40`)
-    }
 })
 

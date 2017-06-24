@@ -1,5 +1,6 @@
 angular.module('app', ['ui.router', 'chart.js'])
        .config(function($stateProvider, $urlRouterProvider){
+           
 
         $urlRouterProvider.when('', '/')
 
@@ -18,6 +19,11 @@ angular.module('app', ['ui.router', 'chart.js'])
             url: '/home',
             templateUrl: './app/views/home.html'
         })
+        .state('trade', {
+            url: '/trade',
+            templateUrl: './app/views/trade.html',
+            controller: 'tradeCtrl'
+        })
 
-
+        
        })

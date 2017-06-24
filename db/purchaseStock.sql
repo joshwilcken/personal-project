@@ -1,0 +1,1 @@
+Insert Into Stocks (ticker, numshares, purchaseprice, purchasedate) values ($1, $2, $3, $4)

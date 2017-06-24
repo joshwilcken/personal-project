@@ -1,0 +1,15 @@
+@import 'main';
+
+.infoContainer {
+    display: flex;
+    justify-content: center;
+
+    #chart {
+        height: 800px;
+        width: 800px;
+    }
+    #line {
+        height: 500px;
+        width: 800px;
+    }
+}

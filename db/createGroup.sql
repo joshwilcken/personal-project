@@ -1,0 +1,1 @@
+Insert Into Groups (Name, Members) values ($1, $2)

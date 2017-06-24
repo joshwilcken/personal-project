@@ -1,14 +1,14 @@
 
 <input ng-model="ticker" placeholder="Enter Ticker Symbol" ng-keypress="checkEvent($event, ticker)">
-<button ng-click="getQuote(ticker); realTimeData(ticker); chartData(ticker)">Go</button>
-<div ng-show="showMe">
-    <h1>{{tickerData.Name}}</h1>
-    <h2>{{liveData["01. Symbol"]}}</h2>
-    <h2>${{liveData["03. Latest Price"]}}</h2>
-    <h2>Upcoming Dividend: {{tickerData.DividendPayDate}} Amount: ${{tickerData.DividendShare}}</h2>
-    <h2>Day low: ${{liveData["06. Low (Current Trading Day)"]}} Day high: ${{liveData["05. High (Current Trading Day)"]}}</h2>
-    <h2>52 Week high: ${{tickerData.YearHigh}} 52 Week low: ${{tickerData.YearLow}}</h2>
+<button ng-click="getQuote(ticker); realTimeData(ticker)">Go</button>
+<div class="infoContainer">
+    <div ng-show="showMe">
+        <h1>{{tickerData.Name}}</h1>
+        <h2>{{liveData["01. Symbol"]}}</h2>
+        <h2>${{liveData["03. Latest Price"]}}</h2>
+        <h2>Upcoming Dividend: {{tickerData.DividendPayDate}} Amount: ${{tickerData.DividendShare}}</h2>
+        <h2>Day low: ${{liveData["06. Low (Current Trading Day)"]}} Day high: ${{liveData["05. High (Current Trading Day)"]}}</h2>
+        <h2>52 Week high: ${{tickerData.YearHigh}} 52 Week low: ${{tickerData.YearLow}}</h2>
+    </div>
+    <chart-dir ticker='chartTicker'></chart-dir>
 </div>
-<canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
-</canvas>
-
