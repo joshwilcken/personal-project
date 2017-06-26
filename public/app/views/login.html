@@ -1,1 +1,8 @@
-<img src="https://chart.finance.yahoo.com/z?s=AAPL&amp;t=6m&amp;q=l&amp;l=on&amp;z=s&amp;p=m50,m200"/>
+<form ng-submit="login(credential)">
+    <input placeholder="example@email.com" ng-model="credential.email">
+    <input placeholder="password" ng-model="credential.password">
+    <button type="submit">Log In</button>
+    <button ui-sref="register">Register</button>
+</form>
+
+{{quote}}

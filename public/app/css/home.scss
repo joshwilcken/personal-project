@@ -1,0 +1,29 @@
+.nyseImage {
+    background-image: url('../app/images/nyse.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 600px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+        height: 200px;
+        width: 400px;
+        background-color: black;
+        margin-top: -100px;
+        opacity: 0.4;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-style: solid;
+
+            p {
+                font-size: 30px;
+        }
+    }
+}

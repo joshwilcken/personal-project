@@ -1,11 +1,8 @@
 <div class="dropdown">
   <span>Trade Type<i class="fa fa-angle-down"></i></span>
   <div class="dropdown-content">
-    <a>Buy</a>
-    <a>Sell</a>
+    <a ui-sref="buy">Buy</a>
+    <a ui-sref="sell">Sell</a>
   </div>
 </div>
 
-<input placeholder="Enter Ticker Symbol" ng-model='trade.ticker'>
-<input placeholder="Number of Shares" ng-model='trade.shares'>
-<button ng-click="submitTrade(trade)">Execute Trade</button>

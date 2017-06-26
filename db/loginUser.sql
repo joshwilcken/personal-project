@@ -1,3 +1,3 @@
 select *
-from Stocks
-where MemberId = $1
+from groupmember
+where email = $1 AND password = $2;

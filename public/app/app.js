@@ -6,6 +6,10 @@ angular.module('app', ['ui.router', 'chart.js'])
 
 
         $stateProvider
+        .state('home', {
+            url: '/',
+            templateUrl: './app/views/home.html'
+        })
         .state('quote', {
             url: '/quote',
             templateUrl: './app/views/quote.html',
@@ -15,14 +19,34 @@ angular.module('app', ['ui.router', 'chart.js'])
             url: 'group',
             templateUrl: './app/views/groupCreator.html'
         })
-        .state('home', {
-            url: '/home',
-            templateUrl: './app/views/home.html'
-        })
         .state('trade', {
             url: '/trade',
             templateUrl: './app/views/trade.html',
             controller: 'tradeCtrl'
+        })
+        .state('buy', {
+            url: '/buy',
+            templateUrl: './app/views/buy.html',
+            controller: 'tradeCtrl'
+        })
+        .state('sell', {
+            url: '/sell',
+            templateUrl: './app/views/sell.html',
+            controller: 'tradeCtrl'
+        })
+        .state('login', {
+            url: '/login',
+            templateUrl: './app/views/login.html',
+            controller: 'loginCtrl'
+        })
+        .state('register', {
+            url: '/register',
+            templateUrl: './app/views/register.html',
+            controller: 'registerCtrl'
+        })
+        .state('profile', {
+            url: '/profile',
+            templateUrl: './app/views/profile.html'
         })
 
         

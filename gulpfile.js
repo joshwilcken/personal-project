@@ -12,7 +12,8 @@ const normalizePath = `${basePath}/css/reset.css`;
 const paths = {
     jsSrc: [`${basePath}/app.js`, `${basePath}/**/*.js`],
     scssSrc: [`${normalizePath}`, `${basePath}/components/**/*.scss`, `${basePath}/css/*.scss`],
-    server: './server/server.js'
+    server: './server/server.js',
+    images: '${basePath}/images/**/*.jpg'
 };
 
 // DEFINE TASKS ===================================

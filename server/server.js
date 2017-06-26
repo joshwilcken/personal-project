@@ -13,13 +13,13 @@ const app = express()
 app.use(bodyParser.json());
 app.use(express.static(__dirname + './../public'))
 
-// app.use(session({
-//   resave: true, 
-//   saveUninitialized: true, 
-//   secret: config.secret
-// }))
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(session({
+  resave: true, 
+  saveUninitialized: true, 
+  secret: config.secret
+}))
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Database Stuffs
 massive(config.database).then(db => {
@@ -28,34 +28,52 @@ massive(config.database).then(db => {
 
 const {buyShares} = require('./controllers/tradeController')
 
+const {sellShares} = require('./controllers/tradeController')
+
+const{registerNewUser} = require('./controllers/registerController')
+
+const{loginPerson} = require('./controllers/loginController')
+
 // Auth0 Middleware
-// passport.use(new Auth0Strategy({
-//     domain: 'joshwilcken.auth0.com',
-//     clientID: '6MUP3My8kk6A3fPRbfGarID4BLtG4sJA',
-//     clientSecret: 'OMxJ4dV77-b-WgPzmUifihUwA7Pdz38tYqkQ80-v8e-6p7gHRYI98eatKAN38ign',
-//     callbackURL: '/login/callback'
-// }, function(accessToken, refreshToken, extraParams, profile, done) {
-//   return done(null, profile);
-// }));
+passport.use(new Auth0Strategy({
+    domain: config.auth0.domain,
+    clientID: config.auth0.clientID,
+    clientSecret: config.auth0.clientSecret,
+    callbackURL: '/login/callback'
+}, function(accessToken, refreshToken, extraParams, profile, done) {
+    var db = app.get('db')
 
-// app.get('/login', passport.authenticate('auth0'))
+    db.getUserByAuthId([profile.id]).then((response) => {
+      var user = response[0]
+      if(!user)
+      db.createUserbyAuth([profile.displayName, profile.id]).then((user) => {
+        return done(null, user)
+      })
+    else  {
+      return done(null, user)
+    }
+    })
+}));
 
-// app.get('/login/callback/', passport.authenticate('auth0', {successRedirect: '/', failureRedirect: 'login'}))
+app.get('/login', passport.authenticate('auth0'))
 
-// passport.serializeUser((userA, done) => {
-//   console.log('serializing', userA);
-//   var userB = userA;
+app.get('/login/callback/', passport.authenticate('auth0', {successRedirect: '/', failureRedirect: 'login'}))
+
+passport.serializeUser((userA, done) => {
+  console.log('serializing', userA);
+  var userB = userA;
  
-//   done(null, userB); 
-// });
+  done(null, userB); 
+});
 
-// passport.deserializeUser((userB, done) => {
-//   var userC = userB;
+passport.deserializeUser((userB, done) => {
+  var userC = userB;
+  var db = app.get('db')
+  db.
 
-//   done(null, userC); 
-// });
-
-
+  done(null, userC); 
+})
+// maked
 
 // Endpoints
 
@@ -72,13 +90,23 @@ const {buyShares} = require('./controllers/tradeController')
 
 app.post('/api/trade', buyShares)
 
+app.post('/api/sell', sellShares)
+
+// app.destroy('/api/trade, ')
+
+// Positions Endpoint
+// app.get('/api/positions', )
+
+
 // Create a group
 // app.post('/group', (res, req, next) => {
 
 // })
 
 // // Add a user to a group
-// app.post('/group', (res, req, next) => {
+app.post('/api/create-user', registerNewUser)
+
+app.post('/api/login', loginPerson)
 
 // })
 

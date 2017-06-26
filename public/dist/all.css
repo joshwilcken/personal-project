@@ -45,6 +45,40 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+.nyseImage {
+  background-image: url("../app/images/nyse.jpg");
+  background-size: cover;
+  height: 600px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .nyseImage div {
+    height: 200px;
+    width: 400px;
+    background-color: black;
+    margin-top: -100px;
+    opacity: 0.4;
+    color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-style: solid; }
+    .nyseImage div p {
+      font-size: 30px; }
+
 .navbar {
   height: 15vh;
   display: -webkit-box;

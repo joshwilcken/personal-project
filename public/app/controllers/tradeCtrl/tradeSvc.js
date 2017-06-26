@@ -7,4 +7,12 @@ angular.module('app').service('tradeSvc', function($http){
             data: trade
         })
     }
+    this.submitSell = (trade) => {
+        console.log(trade)
+        return $http ({
+            url: '/api/sell',
+            method: 'POST',
+            data: trade
+        })
+    }
 })
