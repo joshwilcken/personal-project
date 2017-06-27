@@ -9,6 +9,7 @@ angular.module('app').controller('tradeCtrl', function($scope, tradeSvc){
     $scope.submitSell = (trade) => {
         tradeSvc.submitSell(trade).then(response => {
             console.log(response)
+            alert(`You sold ${response.config.data.shares} shares of ${response.config.data.ticker}!`)
         })
     }
 

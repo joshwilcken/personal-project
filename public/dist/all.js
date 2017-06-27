@@ -10976,22 +10976,48 @@ angular.module('app').service('chartSvc', function ($http) {
 });
 'use strict';
 
-angular.module('app').controller('homeCtrl', function ($scope, homeSvc) {
-    $scope.login = function (user) {
-        chartSvc.loginUser(user).then(function (resp) {
-            state.go('/home');
+angular.module('app').controller('quoteCtrl', function ($scope, $interval, quoteSvc) {
+
+    // detailed quote API call
+    $scope.getQuote = function (ticker) {
+        quoteSvc.getQuote(ticker).then(function (resp) {
+            $scope.tickerData = resp.data.query.results.quote;
+            $scope.chartTicker = $scope.ticker;
+            $scope.ticker = '';
+            $scope.showMe = true;
         });
     };
+    // // Real time quote API call
+    $scope.realTimeData = function (ticker) {
+        quoteSvc.realTimeData(ticker).then(function (resp) {
+            $scope.liveData = resp.data["Realtime Global Securities Quote"];
+            $scope.showMe = true;
+        });
+    };
+
+    // // Checks to see if the client presses the 'Enter' key
+    $scope.checkEvent = function (e, ticker) {
+        if (e.keyCode === 13) {
+            $scope.showMe = true;
+            $scope.realTimeData(ticker);
+            $scope.getQuote(ticker);
+        }
+    };
+    // Updates the quote every 60 seconds
+    // $interval(() => {
+    //     $scope.realTimeData(ticker)
+
+    // }, 60000)
 });
 'use strict';
 
-angular.module('app').service('homeSvc', function ($http) {
-    this.loginUser = function (user) {
-        return $http({
-            url: '/home',
-            method: 'Post',
-            data: user
-        });
+angular.module('app').service('quoteSvc', function ($http) {
+    this.getQuote = function (ticker) {
+        return $http.get('https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22' + ticker + '%22)&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=');
+    };
+
+    this.realTimeData = function (ticker) {
+        return $http.get('http://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=' + ticker + '&apikey=FYYJEATQ6K0NLL40');
     };
 });
 'use strict';
@@ -11048,48 +11074,22 @@ angular.module('app').service('profileSvc', function ($http) {
 });
 'use strict';
 
-angular.module('app').controller('quoteCtrl', function ($scope, $interval, quoteSvc) {
-
-    // detailed quote API call
-    $scope.getQuote = function (ticker) {
-        quoteSvc.getQuote(ticker).then(function (resp) {
-            $scope.tickerData = resp.data.query.results.quote;
-            $scope.chartTicker = $scope.ticker;
-            $scope.ticker = '';
-            $scope.showMe = true;
+angular.module('app').controller('homeCtrl', function ($scope, homeSvc) {
+    $scope.login = function (user) {
+        chartSvc.loginUser(user).then(function (resp) {
+            state.go('/home');
         });
     };
-    // // Real time quote API call
-    $scope.realTimeData = function (ticker) {
-        quoteSvc.realTimeData(ticker).then(function (resp) {
-            $scope.liveData = resp.data["Realtime Global Securities Quote"];
-            $scope.showMe = true;
-        });
-    };
-
-    // // Checks to see if the client presses the 'Enter' key
-    $scope.checkEvent = function (e, ticker) {
-        if (e.keyCode === 13) {
-            $scope.showMe = true;
-            $scope.realTimeData(ticker);
-            $scope.getQuote(ticker);
-        }
-    };
-    // Updates the quote every 60 seconds
-    // $interval(() => {
-    //     $scope.realTimeData(ticker)
-
-    // }, 60000)
 });
 'use strict';
 
-angular.module('app').service('quoteSvc', function ($http) {
-    this.getQuote = function (ticker) {
-        return $http.get('https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22' + ticker + '%22)&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=');
-    };
-
-    this.realTimeData = function (ticker) {
-        return $http.get('http://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=' + ticker + '&apikey=FYYJEATQ6K0NLL40');
+angular.module('app').service('homeSvc', function ($http) {
+    this.loginUser = function (user) {
+        return $http({
+            url: '/home',
+            method: 'Post',
+            data: user
+        });
     };
 });
 'use strict';
@@ -11125,6 +11125,7 @@ angular.module('app').controller('tradeCtrl', function ($scope, tradeSvc) {
     $scope.submitSell = function (trade) {
         tradeSvc.submitSell(trade).then(function (response) {
             console.log(response);
+            alert('You sold ' + response.config.data.shares + ' shares of ' + response.config.data.ticker + '!');
         });
     };
 });

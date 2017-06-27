@@ -1,1 +1,1 @@
-Insert Into Stocks (memberid, ticker, numshares, purchaseprice, purchasedate) values ($1, $2, $3, $4)
+Insert Into Stocks (memberid, ticker, numshares, purchaseprice, purchasedate) values ($1, $2, $3, $4, $5)

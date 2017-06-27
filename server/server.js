@@ -69,8 +69,16 @@ passport.serializeUser((userA, done) => {
 passport.deserializeUser((userB, done) => {
   var userC = userB;
   var db = app.get('db')
-  db.
 
+  db.getPurchasesbyId(userC.memberid).then(response => {
+    console.log('Purchases: ', response)
+    userC.purchases = response
+  })
+
+  db.getSellsbyId(userC.memberid).then(response => {
+    console.log('Sells: ', response)
+    userC.sells = response
+  })
   done(null, userC); 
 })
 // maked
