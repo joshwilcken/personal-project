@@ -1,3 +1,5 @@
+@import 'main';
+
 .nyseImage {
     background-image: url('../app/images/nyse.jpg');
     -webkit-background-size: cover;
@@ -25,5 +27,18 @@
             p {
                 font-size: 30px;
         }
+    }
+}
+.definition {
+    background-color: $main-gray;
+    height: 300px;
+    width: 100vw;
+    color: black;
+    display: flex;
+    h1 {
+        font-size: 30px;
+    }
+    p {
+        font-size: 25px;
     }
 }

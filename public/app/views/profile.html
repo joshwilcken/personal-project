@@ -1,1 +1,22 @@
-<h1>Hello from your Profile</h1>
+<table class="table">
+    <tr>
+        <th>Ticker</th>
+        <th>Last</th>
+        <th>Today's Gain/Loss</th>
+        <th>Total Gain/Loss</th>
+        <th>Current Value</th>
+        <th>Quantity</th>
+    </tr>
+    <tr ng-repeat="c in currentData">
+        <td>{{c.ticker}}</td>
+        <td>{{c.last}}</td>
+        <td>{{c.todayGl}}</td>
+        <td>{{c.totlGl}}</td>
+        <td>{{c.currentValue}}</td>
+        <td>{{c.quantity}}</td>
+    </tr>
+</table>
+
+
+
+<!--Ticker/Stock Name, last, Today’s Gain/Loss, Total Gain/Loss, current Value, Quantity-->

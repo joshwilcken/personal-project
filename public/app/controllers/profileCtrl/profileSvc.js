@@ -1,9 +1,9 @@
 angular.module('app').service('profileSvc', function($http){
-    this.getData = (user) => {
+    this.getData = () => {
         return $http({
             url: '/api/profile',
-            method: 'GET',
-            data: user
+            method: 'GET'
         })
     }
+
 })

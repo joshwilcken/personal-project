@@ -79,6 +79,19 @@ table {
     .nyseImage div p {
       font-size: 30px; }
 
+.definition {
+  background-color: #F0F0F0;
+  height: 300px;
+  width: 100vw;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .definition h1 {
+    font-size: 30px; }
+  .definition p {
+    font-size: 25px; }
+
 .navbar {
   height: 15vh;
   display: -webkit-box;
@@ -129,6 +142,9 @@ table {
       height: 30px;
       width: 30px; }
 
+
+.table {
+  width: 100vw; }
 
 .infoContainer {
   display: -webkit-box;

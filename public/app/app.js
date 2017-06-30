@@ -34,19 +34,10 @@ angular.module('app', ['ui.router', 'chart.js'])
             templateUrl: './app/views/sell.html',
             controller: 'tradeCtrl'
         })
-        .state('login', {
-            url: '/login',
-            templateUrl: './app/views/login.html',
-            controller: 'loginCtrl'
-        })
-        .state('register', {
-            url: '/register',
-            templateUrl: './app/views/register.html',
-            controller: 'registerCtrl'
-        })
         .state('profile', {
             url: '/profile',
-            templateUrl: './app/views/profile.html'
+            templateUrl: './app/views/profile.html',
+            controller: 'profileCtrl'
         })
 
         

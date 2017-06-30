@@ -26,17 +26,10 @@ angular.module('app', ['ui.router', 'chart.js']).config(function ($stateProvider
         url: '/sell',
         templateUrl: './app/views/sell.html',
         controller: 'tradeCtrl'
-    }).state('login', {
-        url: '/login',
-        templateUrl: './app/views/login.html',
-        controller: 'loginCtrl'
-    }).state('register', {
-        url: '/register',
-        templateUrl: './app/views/register.html',
-        controller: 'registerCtrl'
     }).state('profile', {
         url: '/profile',
-        templateUrl: './app/views/profile.html'
+        templateUrl: './app/views/profile.html',
+        controller: 'profileCtrl'
     });
 });
 "use strict";
@@ -10918,6 +10911,7 @@ angular.module('app').controller('chartCtrl', function ($scope, chartSvc) {
         if (!ticker) return;
         chartSvc.chartData(ticker).then(function (resp) {
             $scope.chartInfo = resp.data["Time Series (Daily)"];
+            console.log($scope.chartInfo);
             var closeValue = [];
             var dateAxis = [];
             Object.keys($scope.chartInfo).forEach(function (key) {
@@ -10976,6 +10970,44 @@ angular.module('app').service('chartSvc', function ($http) {
 });
 'use strict';
 
+angular.module('app').controller('homeCtrl', function ($scope, homeSvc) {
+    $scope.login = function (user) {
+        chartSvc.loginUser(user).then(function (resp) {
+            state.go('/home');
+        });
+    };
+});
+'use strict';
+
+angular.module('app').service('homeSvc', function ($http) {
+    this.loginUser = function (user) {
+        return $http({
+            url: '/home',
+            method: 'Post',
+            data: user
+        });
+    };
+});
+'use strict';
+
+angular.module('app').controller('profileCtrl', function ($scope, profileSvc) {
+        profileSvc.getData().then(function (resp) {
+                $scope.currentData = resp.data;
+                console.log(resp.data);
+        });
+});
+'use strict';
+
+angular.module('app').service('profileSvc', function ($http) {
+    this.getData = function () {
+        return $http({
+            url: '/api/profile',
+            method: 'GET'
+        });
+    };
+});
+'use strict';
+
 angular.module('app').controller('quoteCtrl', function ($scope, $interval, quoteSvc) {
 
     // detailed quote API call
@@ -11022,107 +11054,17 @@ angular.module('app').service('quoteSvc', function ($http) {
 });
 'use strict';
 
-angular.module('app').controller('loginCtrl', function ($scope, loginSvc, $state) {
-    $scope.login = function (credential) {
-        loginSvc.loginUser(credential).then(function (res) {
-            console.log(res);
-            if (res.data.length > 0) {
-                $state.go('profile');
-            } else {
-                alert("Incorrect username or password");
-            }
-        });
-    };
-    $scope.quote = loginSvc.quote;
-}
-
-// $scope.login = (user) => {
-// 	authService.loginUser(user).then(res => {
-// 		if(res.data.length > 0) {
-// 			$state.go('home')
-// 		} else {
-// 			alert('Too Bad')
-// 		}
-// 	})
-// }
-);
-'use strict';
-
-angular.module('app').service('loginSvc', function ($http) {
-    this.loginUser = function (credential) {
-        return $http({
-            url: '/api/login',
-            method: 'POST',
-            data: credential
-        });
-    };
-    this.quote = 'hello from inside the computer';
-});
-'use strict';
-
-angular.module('app').controller('profileCtrl', function ($scope, profileSvc) {});
-'use strict';
-
-angular.module('app').service('profileSvc', function ($http) {
-    this.getData = function (user) {
-        return $http({
-            url: '/api/profile',
-            method: 'GET',
-            data: user
-        });
-    };
-});
-'use strict';
-
-angular.module('app').controller('homeCtrl', function ($scope, homeSvc) {
-    $scope.login = function (user) {
-        chartSvc.loginUser(user).then(function (resp) {
-            state.go('/home');
-        });
-    };
-});
-'use strict';
-
-angular.module('app').service('homeSvc', function ($http) {
-    this.loginUser = function (user) {
-        return $http({
-            url: '/home',
-            method: 'Post',
-            data: user
-        });
-    };
-});
-'use strict';
-
-angular.module('app').controller('registerCtrl', function ($scope, registerSvc) {
-    $scope.register = function (user) {
-        registerSvc.registerUser(user).then(function (res) {
-            console.log(res);
-        });
-    };
-});
-'use strict';
-
-angular.module('app').service('registerSvc', function ($http) {
-    this.registerUser = function (user) {
-        return $http({
-            url: '/api/create-user',
-            method: 'POST',
-            data: user
-        });
-    };
-});
-'use strict';
-
 angular.module('app').controller('tradeCtrl', function ($scope, tradeSvc) {
 
     $scope.submitTrade = function (trade) {
+        console.log("buy: ", trade);
         tradeSvc.submitTrade(trade).then(function (response) {
             console.log(response);
             alert('You Purchased ' + response.config.data.shares + ' shares of ' + response.config.data.ticker + '!');
         });
     };
     $scope.submitSell = function (trade) {
+        console.log("sell: ", trade);
         tradeSvc.submitSell(trade).then(function (response) {
             console.log(response);
             alert('You sold ' + response.config.data.shares + ' shares of ' + response.config.data.ticker + '!');
@@ -11135,7 +11077,7 @@ angular.module('app').service('tradeSvc', function ($http) {
     this.submitTrade = function (trade) {
         console.log(trade);
         return $http({
-            url: '/api/trade',
+            url: '/api/buy',
             method: 'POST',
             data: trade
         });
@@ -11149,3 +11091,4 @@ angular.module('app').service('tradeSvc', function ($http) {
         });
     };
 });
+//# sourceMappingURL=all.js.map

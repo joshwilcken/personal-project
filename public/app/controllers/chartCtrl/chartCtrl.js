@@ -4,6 +4,7 @@ angular.module('app').controller('chartCtrl', function ($scope, chartSvc) {
         if (!ticker) return
         chartSvc.chartData(ticker).then((resp) => {
             $scope.chartInfo = resp.data["Time Series (Daily)"]
+            console.log($scope.chartInfo)
             let closeValue = []
             let dateAxis = []
             Object.keys($scope.chartInfo).forEach(key => {

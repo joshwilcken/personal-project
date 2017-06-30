@@ -30,9 +30,7 @@ const {buyShares} = require('./controllers/tradeController')
 
 const {sellShares} = require('./controllers/tradeController')
 
-const{registerNewUser} = require('./controllers/registerController')
-
-const{loginPerson} = require('./controllers/loginController')
+const{profileInfo} = require('./controllers/profileController')
 
 // Auth0 Middleware
 passport.use(new Auth0Strategy({
@@ -57,7 +55,7 @@ passport.use(new Auth0Strategy({
 
 app.get('/login', passport.authenticate('auth0'))
 
-app.get('/login/callback/', passport.authenticate('auth0', {successRedirect: '/', failureRedirect: 'login'}))
+app.get('/login/callback/', passport.authenticate('auth0', {successRedirect: '/#!/profile', failureRedirect: 'login'}))
 
 passport.serializeUser((userA, done) => {
   console.log('serializing', userA);
@@ -71,12 +69,10 @@ passport.deserializeUser((userB, done) => {
   var db = app.get('db')
 
   db.getPurchasesbyId(userC.memberid).then(response => {
-    console.log('Purchases: ', response)
     userC.purchases = response
   })
 
   db.getSellsbyId(userC.memberid).then(response => {
-    console.log('Sells: ', response)
     userC.sells = response
   })
   done(null, userC); 
@@ -94,11 +90,13 @@ passport.deserializeUser((userB, done) => {
 // })
 
 // Make a purchase
+app.post('/api/buy', buyShares)
 
-
-app.post('/api/trade', buyShares)
-
+// Sell shares
 app.post('/api/sell', sellShares)
+
+// Bring in profile
+app.get('/api/profile', profileInfo)
 
 // app.destroy('/api/trade, ')
 
@@ -112,9 +110,7 @@ app.post('/api/sell', sellShares)
 // })
 
 // // Add a user to a group
-app.post('/api/create-user', registerNewUser)
 
-app.post('/api/login', loginPerson)
 
 // })
 
