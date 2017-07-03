@@ -1,18 +1,17 @@
 @import 'main';
 
-td.red {
+.red {
   color: red;
 }
-
-td.green {
+.green {
   color: green;
 }
 
 .profileWrapper{
-    margin-left: 120px;
+    margin-left: 250px;
 
     table {
-        width: 80vw;
+        width: 60vw;
         height: 100vh;
         border: 1px solid #ddd;
         margin-bottom: 60px;

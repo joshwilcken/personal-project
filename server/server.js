@@ -32,6 +32,8 @@ const {sellShares} = require('./controllers/tradeController')
 
 const{profileInfo} = require('./controllers/profileController')
 
+const{profileTotals} = require('./controllers/profileTotalController')
+
 // Auth0 Middleware
 passport.use(new Auth0Strategy({
     domain: config.auth0.domain,
@@ -97,6 +99,8 @@ app.post('/api/sell', sellShares)
 
 // Bring in profile
 app.get('/api/profile', profileInfo)
+
+app.get('/api/totals', profileTotals)
 
 // app.destroy('/api/trade, ')
 
