@@ -6,4 +6,10 @@ angular.module('app').service('profileSvc', function($http){
         })
     }
 
+    this.getTotals = () => {
+        return $http({
+            url: '/api/totals',
+            method: 'GET'
+        })
+    }
 })

@@ -11047,6 +11047,11 @@ angular.module('app').controller('profileCtrl', function ($scope, profileSvc) {
     profileSvc.getData().then(function (resp) {
         $scope.currentData = resp.data;
     });
+
+    profileSvc.getTotals().then(function (resp) {
+        $scope.totalsData = resp.data;
+        console.log($scope.totalsData);
+    });
 });
 'use strict';
 
@@ -11054,6 +11059,13 @@ angular.module('app').service('profileSvc', function ($http) {
     this.getData = function () {
         return $http({
             url: '/api/profile',
+            method: 'GET'
+        });
+    };
+
+    this.getTotals = function () {
+        return $http({
+            url: '/api/totals',
             method: 'GET'
         });
     };
