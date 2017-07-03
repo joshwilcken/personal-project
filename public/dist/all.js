@@ -30,6 +30,10 @@ angular.module('app', ['ui.router', 'chart.js']).config(function ($stateProvider
         url: '/profile',
         templateUrl: './app/views/profile.html',
         controller: 'profileCtrl'
+    }).state('test', {
+        url: '/test',
+        templateUrl: './app/views/test.html',
+        controller: 'homegraphCtrl'
     });
 });
 "use strict";
@@ -10990,11 +10994,59 @@ angular.module('app').service('homeSvc', function ($http) {
 });
 'use strict';
 
-angular.module('app').controller('profileCtrl', function ($scope, profileSvc) {
-        profileSvc.getData().then(function (resp) {
-                $scope.currentData = resp.data;
-                console.log(resp.data);
+angular.module('app').controller('homegraphCtrl', function ($scope, homegraphSvc) {
+    homegraphSvc.spyData().then(function (resp) {
+        $scope.chartInfo = resp.data["Time Series (Daily)"];
+        console.log($scope.chartInfo);
+        var closeValue = [];
+        var dateAxis = [];
+        Object.keys($scope.chartInfo).forEach(function (key) {
+            dateAxis.push(key);
+            var myObj = $scope.chartInfo[key];
+            closeValue.push(myObj["4. close"]);
         });
+        $scope.labels = dateAxis.reverse();
+        $scope.series = dateAxis;
+        $scope.data = closeValue.reverse();
+        // $scope.onClick = function (points, evt) {
+        //     console.log(points, evt);
+        // };
+        $scope.datasetOverride = [{
+            yAxisID: 'y-axis-1'
+        }];
+        $scope.colors = [{
+            backgroundColor: '#DCDCDC'
+            // borderColor: "rgb(171,61,117)",
+            // pointBackgroundColor: 'rgb(159,204,0)',
+            // pointBorderColor: "rgb(55,200,6)",
+            // pointHoverBackgroundColor: "rgb(217,211,177)",
+            // pointHoverBorderColor: "rggulb(217,211,177)"
+        }];
+        $scope.options = {
+            scales: {
+                yAxes: [{
+                    id: 'y-axis-1',
+                    type: 'linear',
+                    display: true,
+                    position: 'right'
+                }]
+            }
+        };
+    });
+});
+'use strict';
+
+angular.module('app').service('homegraphSvc', function ($http) {
+    this.spyData = function () {
+        return $http.get('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=spy&apikey=FYYJEATQ6K0NLL40');
+    };
+});
+'use strict';
+
+angular.module('app').controller('profileCtrl', function ($scope, profileSvc) {
+    profileSvc.getData().then(function (resp) {
+        $scope.currentData = resp.data;
+    });
 });
 'use strict';
 
@@ -11017,12 +11069,14 @@ angular.module('app').controller('quoteCtrl', function ($scope, $interval, quote
             $scope.chartTicker = $scope.ticker;
             $scope.ticker = '';
             $scope.showMe = true;
+            console.log($scope.tickerData);
         });
     };
     // // Real time quote API call
     $scope.realTimeData = function (ticker) {
         quoteSvc.realTimeData(ticker).then(function (resp) {
             $scope.liveData = resp.data["Realtime Global Securities Quote"];
+            console.log($scope.liveData);
             $scope.showMe = true;
         });
     };

@@ -1,3 +1,7 @@
-<input placeholder="Enter Ticker Symbol" ng-model='trade.ticker'>
-<input placeholder="Number of Shares" ng-model='trade.shares'>
-<button ng-click="submitTrade(trade)">Execute Trade</button>
+<div class="tradeWrapper">
+    <div class="tradeContainer">
+        <input placeholder="Enter Ticker Symbol" ng-model='trade.ticker'>
+        <input placeholder="Number of Shares" ng-model='trade.shares'>
+        <button ng-click="submitTrade(trade)">Execute Trade</button>
+    </div>
+</div>

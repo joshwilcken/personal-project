@@ -1,3 +1,42 @@
-.table {
-    width: 100vw;
+@import 'main';
+
+td.red {
+  color: red;
 }
+
+td.green {
+  color: green;
+}
+
+.profileWrapper{
+    margin-left: 120px;
+
+    table {
+        width: 80vw;
+        height: 100vh;
+        border: 1px solid #ddd;
+        margin-bottom: 60px;
+
+        th {
+            height: 20px;
+            width: 100px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: bottom;
+        }
+        td {
+            height: 20px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+            vertical-align: middle;
+        }
+        tr:hover {
+            background-color: $main-gray;
+        }
+        th:hover {
+            background-color: none;
+
+        }
+    }
+}
+
+

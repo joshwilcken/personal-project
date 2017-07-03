@@ -39,6 +39,12 @@ angular.module('app', ['ui.router', 'chart.js'])
             templateUrl: './app/views/profile.html',
             controller: 'profileCtrl'
         })
+        .state('test', {
+            url: '/test',
+            templateUrl: './app/views/test.html',
+            controller: 'homegraphCtrl'
+        })
+
 
         
        })

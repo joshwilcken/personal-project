@@ -45,6 +45,270 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+.tradeWrapper {
+  background: #E0E0E0;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .tradeWrapper .tradeContainer {
+    margin-top: -150px;
+    height: 20%;
+    width: 30%;
+    border: 2px solid #AC7281;
+    background: #494E6B;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .tradeWrapper .tradeContainer input {
+      background: #E0E0E0; }
+    .tradeWrapper .tradeContainer button {
+      background: #E0E0E0;
+      cursor: pointer; }
+
+.tradefloor {
+  background-image: url("https://media.ally.com/download/stockfloor.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-filter: grayscale(50%);
+  filter: grayscale(50%);
+  height: 600px;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .tradefloor div {
+    height: 200px;
+    width: 400px;
+    background-color: black;
+    margin-top: -100px;
+    opacity: 0.6;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-style: solid; }
+    .tradefloor div p {
+      font-size: 25px; }
+
+.definition {
+  background-color: #E0E0E0;
+  height: 300px;
+  width: 100vw;
+  color: black;
+  font-family: 'Raleway', sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 0px; }
+  .definition h1 {
+    font-size: 30px;
+    width: 40%; }
+  .definition p {
+    margin-top: -5px;
+    font-size: 25px;
+    width: 40%; }
+
+.bull {
+  background-image: url("http://wallpapercave.com/wp/PehYbPs.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  .bull button {
+    width: 150px;
+    height: 50px;
+    margin-bottom: 75px;
+    background-color: #494E6B;
+    color: #AC7281;
+    font-size: 20px;
+    cursor: pointer; }
+  .bull button:hover {
+    width: 175px;
+    height: 55px; }
+
+.navbar {
+  height: 12vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #212C42;
+  font-size: 20px;
+  color: white;
+  font-family: 'Raleway', sans-serif; }
+  .navbar a {
+    text-decoration: none; }
+  .navbar .creator {
+    color: white; }
+  .navbar a:visited {
+    color: white; }
+  .navbar a:hover {
+    font-size: 25px;
+    color: #AC7281;
+    font-weight: bold; }
+
+.footer {
+  background-color: #212C42;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 50px;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  margin-top: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center; }
+  .footer a:visited {
+    color: white; }
+  .footer a:hover {
+    color: #AC7281; }
+
+
+td.red {
+  color: red; }
+
+td.green {
+  color: green; }
+
+.profileWrapper {
+  margin-left: 120px; }
+  .profileWrapper table {
+    width: 80vw;
+    height: 100vh;
+    border: 1px solid #ddd;
+    margin-bottom: 60px; }
+    .profileWrapper table th {
+      height: 20px;
+      width: 100px;
+      border-bottom: 1px solid #ddd;
+      vertical-align: bottom; }
+    .profileWrapper table td {
+      height: 20px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+      vertical-align: middle; }
+    .profileWrapper table tr:hover {
+      background-color: #E0E0E0; }
+    .profileWrapper table th:hover {
+      background-color: none; }
+
+.inputContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .inputContainer input {
+    width: 150px; }
+  .inputContainer button {
+    width: 30px; }
+
+.infoContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around; }
+  .infoContainer table {
+    height: 400px;
+    width: 300px;
+    border: 1px solid #ddd; }
+    .infoContainer table .stockName {
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+      width: 100%;
+      height: 30px;
+      vertical-align: middle; }
+    .infoContainer table tr:hover {
+      background-color: #E0E0E0; }
+    .infoContainer table th {
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+      vertical-align: middle; }
+    .infoContainer table td {
+      border-bottom: 1px solid #ddd;
+      height: 25px;
+      width: 100px;
+      text-align: right;
+      vertical-align: middle; }
+  .infoContainer #chart {
+    height: 450px;
+    width: 700px; }
+  .infoContainer #line {
+    padding-top: 80px;
+    height: 450px;
+    width: 700px; }
+
+#spyChart {
+  height: 400px;
+  width: 600px; }
+
 .nyseImage {
   background-image: url("../app/images/nyse.jpg");
   background-size: cover;
@@ -60,119 +324,22 @@ table {
   -ms-flex-align: center;
   align-items: center; }
   .nyseImage div {
-    height: 200px;
-    width: 400px;
-    background-color: black;
-    margin-top: -100px;
-    opacity: 0.4;
-    color: white;
+    border: 2px solid #212C42;
+    background-color: #212C42;
+    opacity: 0.6;
+    height: 20%;
+    width: 30%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    border-style: solid; }
-    .nyseImage div p {
-      font-size: 30px; }
-
-.definition {
-  background-color: #F0F0F0;
-  height: 300px;
-  width: 100vw;
-  color: black;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
-  .definition h1 {
-    font-size: 30px; }
-  .definition p {
-    font-size: 25px; }
-
-.navbar {
-  height: 15vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background: #408800;
-  font-size: 20px;
-  color: white;
-  font-family: Helvetica; }
-  .navbar a {
-    text-decoration: none; }
-  .navbar .creator {
-    color: white; }
-  .navbar a:visited {
-    color: white; }
-  .navbar a:hover {
-    font-size: 25px; }
-
-.footer {
-  background-color: #408800;
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
-  height: 5vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center; }
-  .footer div {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -ms-flex-line-pack: center;
-    align-content: center; }
-    .footer div i {
-      height: 30px;
-      width: 30px; }
-
-
-.table {
-  width: 100vw; }
-
-.infoContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center; }
-  .infoContainer #chart {
-    height: 800px;
-    width: 800px; }
-  .infoContainer #line {
-    height: 500px;
-    width: 800px; }
-
-.dropdown {
-  position: relative;
-  display: inline-block; }
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 12px 12px;
-  z-index: 1; }
-
-.dropdown:hover .dropdown-content {
-  display: block; }
+    -ms-flex-pack: distribute;
+    justify-content: space-around; }
+    .nyseImage div button {
+      width: 100px;
+      outline: none;
+      background: #AC7281;
+      color: #E0E0E0;
+      cursor: pointer; }

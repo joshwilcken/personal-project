@@ -7,6 +7,7 @@ angular.module('app').controller('quoteCtrl', function ($scope, $interval, quote
             $scope.chartTicker = $scope.ticker 
             $scope.ticker = '';
             $scope.showMe = true;
+            console.log($scope.tickerData)
         })
 
     }
@@ -14,6 +15,7 @@ angular.module('app').controller('quoteCtrl', function ($scope, $interval, quote
     $scope.realTimeData = (ticker) => {
         quoteSvc.realTimeData(ticker).then((resp) => {
             $scope.liveData = resp.data["Realtime Global Securities Quote"];
+            console.log($scope.liveData)
             $scope.showMe = true;
         })
 

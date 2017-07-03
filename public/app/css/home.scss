@@ -1,13 +1,15 @@
 @import 'main';
 
-.nyseImage {
-    background-image: url('../app/images/nyse.jpg');
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+.tradefloor{
+    background-image: url('https://media.ally.com/download/stockfloor.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
+    -webkit-filter: grayscale(50%);
+    filter: grayscale(50%);
     height: 600px;
-    width: 100%;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,15 +19,16 @@
         width: 400px;
         background-color: black;
         margin-top: -100px;
-        opacity: 0.4;
+        opacity: 0.6;
         color: white;
+        font-family: 'Raleway', sans-serif;
         display: flex;
         justify-content: center;
         align-items: center;
         border-style: solid;
 
             p {
-                font-size: 30px;
+                font-size: 25px;
         }
     }
 }
@@ -34,11 +37,44 @@
     height: 300px;
     width: 100vw;
     color: black;
+    font-family: 'Raleway', sans-serif;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
     h1 {
         font-size: 30px;
+        width: 40%
     }
     p {
+        margin-top: -5px;
         font-size: 25px;
+        width: 40%;
+    }
+}
+.bull {
+    background-image: url('http://wallpapercave.com/wp/PehYbPs.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    button {
+        width: 150px;
+        height: 50px;
+        margin-bottom: 75px;
+        background-color: $sub-blue;
+        color: $main-orange;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    button:hover {
+        width: 175px;
+        height: 55px;
     }
 }

@@ -1,22 +1,33 @@
-<table class="table">
-    <tr>
-        <th>Ticker</th>
-        <th>Last</th>
-        <th>Today's Gain/Loss</th>
-        <th>Total Gain/Loss</th>
-        <th>Current Value</th>
-        <th>Quantity</th>
-    </tr>
-    <tr ng-repeat="c in currentData">
-        <td>{{c.ticker}}</td>
-        <td>{{c.last}}</td>
-        <td>{{c.todayGl}}</td>
-        <td>{{c.totlGl}}</td>
-        <td>{{c.currentValue}}</td>
-        <td>{{c.quantity}}</td>
-    </tr>
-</table>
+<div class="profileWrapper">
+    <table>
+        <tr>
+            <th>Ticker</th>
+            <th>Last</th>
+            <th>Today's Gain/Loss</th>
+            <th>Total Gain/Loss</th>
+            <th>Current Value</th>
+            <th>Quantity</th>
+        </tr>
+        <tr ng-repeat="c in currentData">
+            <td>{{c.ticker}}</td>
+            <td>${{c.last}}</td>
+            <td><p class="colourize">${{c.todayGl}}</p></td>
+            <td><p class="colourize">${{c.totalGl}}</p></td>
+            <td>${{c.currentValue}}</td>
+            <td>{{c.quantity}}</td>
+        </tr>
+    </table>
+</div>
+<script type='text/javascript'>
+$(document).ready( () => {
 
+  // the following will select all 'td' elements with class "of_number_to_be_evaluated"
+  // if the TD element has a '-', it will assign a 'red' class, and do the same for green.
+
+  $("td.colourize:contains('-')").addClass('red');
+  $("td.colourize:contains('+')").addClass('green');
+}
+</script>
 
 
 <!--Ticker/Stock Name, last, Today’s Gain/Loss, Total Gain/Loss, current Value, Quantity-->

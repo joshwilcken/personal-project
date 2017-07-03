@@ -1,15 +1,59 @@
 @import 'main';
 
-.infoContainer {
+.inputContainer {
     display: flex;
     justify-content: center;
+    align-items: center;
 
-    #chart {
-        height: 800px;
-        width: 800px;
+    input {
+        width: 150px;
     }
-    #line {
-        height: 500px;
-        width: 800px;
+    button {
+        width: 30px;
     }
 }
+    
+.infoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    table {
+        height: 400px;
+        width: 300px;
+        border: 1px solid #ddd;
+
+    .stockName {
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+        width: 100%;
+        height: 30px;
+        vertical-align: middle;
+    }
+    tr:hover {
+        background-color: $main-gray;
+    }
+    th {
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+        vertical-align: middle;
+    }
+    td {
+        border-bottom: 1px solid #ddd;
+        height: 25px;
+        width: 100px;
+        text-align: right;
+        vertical-align: middle;
+    }
+    }
+    #chart {
+        height: 450px;
+        width: 700px;
+    }
+    #line {
+        padding-top: 80px;
+        height: 450px;
+        width: 700px;
+    }
+}
+

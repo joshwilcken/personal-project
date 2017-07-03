@@ -1,14 +1,14 @@
 @import 'main';
 
 .navbar {
-    height: 15vh;
+    height: 12vh;
     display: flex;
     justify-content: space-around; 
     align-items: center;
-    background: $main-green;
+    background: $main-blue;
     font-size: 20px;
     color: white;
-    font-family: Helvetica;
+    font-family: 'Raleway', sans-serif;
     a {
         text-decoration: none;
     }
@@ -20,25 +20,26 @@
     }
     a:hover {
         font-size: 25px;
+        color: $main-orange;
+        font-weight: bold;
     }
 }
 .footer {
-    background-color: $main-green;
+    background-color: $main-blue;
     position: fixed;
     bottom: 0;
     width: 100vw;
-    height: 5vh;
+    height: 50px;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    margin-top: 2px;
     display: flex;
     justify-content: center;
     align-content: center;
-    div {
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        i {
-            height: 30px;
-            width: 30px;
-        }
+    a:visited {
+        color: white;
     }
-
+    a:hover {
+        color: $main-orange;
+    }
 }
