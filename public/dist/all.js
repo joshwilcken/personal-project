@@ -11044,14 +11044,29 @@ angular.module('app').service('homegraphSvc', function ($http) {
 'use strict';
 
 angular.module('app').controller('profileCtrl', function ($scope, profileSvc) {
+
     profileSvc.getData().then(function (resp) {
         $scope.currentData = resp.data;
+        $scope.count += 1;
+        if ($scope.count === 2) {
+            $scope.dataLoad = !$scope.dataLoad;
+            $scope.dataLoader = !$scope.dataLoader;
+        }
     });
 
     profileSvc.getTotals().then(function (resp) {
         $scope.totalsData = resp.data;
-        console.log($scope.totalsData);
+        $scope.count += 1;
+        if ($scope.count === 2) {
+            $scope.dataLoad = !$scope.dataLoad;
+            $scope.dataLoader = !$scope.dataLoader;
+        }
     });
+
+    $scope.count = 0;
+    console.log($scope.count);
+    $scope.dataLoad = false;
+    $scope.dataLoader = true;
 });
 'use strict';
 

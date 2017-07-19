@@ -1,5 +1,5 @@
 <div class="profileWrapper">
-    <table>
+    <table ng-if="dataLoad">
         <tr>
             <th>Ticker</th>
             <th>Last</th>
@@ -19,14 +19,16 @@
         <tr>
             <td></td>
             <td>Totals:</td>
-            <td><p ng-class="{'red': totalsData[0].todayTotes < 0, 'green': totalsData[0].todayTotes > 0}">{{totalsData[0].todayTotes}}</p></td>
-            <td><p ng-class="{'red': totalsData[0].totesTotal < 0, 'green': totalsData[0].totesTotal > 0}">{{totalsData[0].totesTotal}}</p></td>
+            <td><p ng-class="{'red': totalsData[0].todayTotes < 0, 'green': totalsData[0].todayTotes > 0}">{{totalsData[0].todayTotes | number:2}}</p></td>
+            <td><p ng-class="{'red': totalsData[0].totesTotal < 0, 'green': totalsData[0].totesTotal > 0}">{{totalsData[0].totesTotal | number:2}}</p></td>
             <td></td>
             <td></td>
         </tr>
     </table>
+    <div class="load-container">
+        <div ng-if="dataLoader" class="loader"></div>
+    </div>
 </div>
-
 
 
 <!--Ticker/Stock Name, last, Today’s Gain/Loss, Total Gain/Loss, current Value, Quantity-->

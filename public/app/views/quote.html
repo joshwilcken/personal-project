@@ -1,49 +1,52 @@
-
-    <div class="inputContainer">
-        <input ng-model="ticker" placeholder="Enter Ticker Symbol" ng-keypress="checkEvent($event, ticker)">
-        <button ng-click="getQuote(ticker); realTimeData(ticker)">Go</button>
-    </div>
-    <div ng-show="showMe" class="infoContainer">
-        <table ng-show="showMe">
-            <tr>
-                <th class="stockName">{{tickerData.Name}}</th>
-            </tr>
-            <tr>
-                <th>Ticker Symbol</th>
-                <td>{{liveData["01. Symbol"]}}</td>
-            </tr>
-            <tr>
-                <th>Last</th>
-                <td>${{liveData["03. Latest Price"]}}</td>
-            </tr>
-            <tr>
-                <th>Day High</th>
-                <td>${{liveData["05. High (Current Trading Day)"]}}</td>
-            </tr>
-            <tr>
-                <th>Day Low</th>
-                <td>${{liveData["06. Low (Current Trading Day)"]}}</td>
-            </tr>
-            <tr>
-                <th>Open</th>
-                <td>${{liveData["04. Open (Current Trading Day)"]}}</td>
-            </tr>
-            <tr>
-                <th>Previous Close</th>
-                <td>${{liveData["07. Close (Previous Trading Day)"]}}</td>
-            </tr>
-            <tr>
-                <th>52-Week High</th>
-                <td>${{tickerData.YearHigh}}</td>
-            </tr>
-            <tr>
-                <th>52-Week Low</th>
-                <td>${{tickerData.YearLow}}</td>
-            </tr>
-            <tr>
-                <th>Earnings Per Share</th>
-                <td>${{tickerData.EarningsShare}}</td>
-            </tr>
-        </table>
-        <chart-dir ticker='chartTicker'></chart-dir>
-    </div>
+<div class="inputContainer">
+    <input ng-model="ticker" placeholder="Enter Ticker Symbol" ng-keypress="checkEvent($event, ticker)">
+    <button ng-click="getQuote(ticker); realTimeData(ticker)">Go</button>
+</div>
+<div ng-show="showMe" class="infoContainer">
+    <table ng-show="showMe">
+        <tr>
+            <th class="stockName">{{tickerData.Name}}</th>
+        </tr>
+        <tr>
+            <th>Ticker Symbol</th>
+            <td>{{liveData["01. Symbol"]}}</td>
+        </tr>
+        <tr>
+            <th>Last</th>
+            <td>${{liveData["03. Latest Price"]}}</td>
+        </tr>
+        <tr>
+            <th>Change</th>
+            <td ng-class="{'red': liveData['08. Price Change'] < 0, 'green': liveData['08. Price Change'] > 0}">${{liveData["08. Price Change"]}}</td>
+        </tr>
+        <tr>
+            <th>Day High</th>
+            <td>${{liveData["05. High (Current Trading Day)"]}}</td>
+        </tr>
+        <tr>
+            <th>Day Low</th>
+            <td>${{liveData["06. Low (Current Trading Day)"]}}</td>
+        </tr>
+        <tr>
+            <th>Open</th>
+            <td>${{liveData["04. Open (Current Trading Day)"]}}</td>
+        </tr>
+        <tr>
+            <th>Previous Close</th>
+            <td>${{liveData["07. Close (Previous Trading Day)"]}}</td>
+        </tr>
+        <tr>
+            <th>52-Week High</th>
+            <td>${{tickerData.YearHigh}}</td>
+        </tr>
+        <tr>
+            <th>52-Week Low</th>
+            <td>${{tickerData.YearLow}}</td>
+        </tr>
+        <tr>
+            <th>Earnings Per Share</th>
+            <td>${{tickerData.EarningsShare}}</td>
+        </tr>
+    </table>
+    <chart-dir ticker='chartTicker'></chart-dir>
+</div>
